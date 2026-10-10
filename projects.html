@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>San San — Projects</title>
+    <link rel="icon" type="image/png" href="SanSanLogo.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="page-shell empty-page">
+    <header class="site-header">
+      <div class="brand" aria-label="San San home">
+        <img class="brand-logo" src="SanSanLogo.png" alt="San San logo" />
+      </div>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html" aria-current="page">Projects</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="zines-page projects-page">
+      <div class="project-tag-bar" aria-label="Project filters">
+        <button class="project-tag-filter is-active" type="button" data-filter="all">Show All</button>
+        <button class="project-tag-filter" type="button" data-filter="Engineering">Engineering</button>
+        <button class="project-tag-filter" type="button" data-filter="Product Management">Product Management</button>
+        <button class="project-tag-filter" type="button" data-filter="Writing">Writing</button>
+        <button class="project-tag-filter" type="button" data-filter="UX/UI Design">UX/UI Design</button>
+        <button class="project-tag-filter" type="button" data-filter="Event Organization">Event Organization</button>
+      </div>
+
+      <div class="projects-grid projects-card-grid" aria-label="Zine gallery">
+        <article class="project-card" data-tags="Engineering">
+          <a class="projects-link" href="https://azure.microsoft.com/en-us/blog/microsofts-strategic-ai-datacenter-planning-enables-seamless-large-scale-nvidia-rubin-deployments/" target="_blank" rel="noopener noreferrer" aria-label="Microsoft NVL72 Networking Infrastructure">
+            <img src="msftnvl72infra.jpg" alt="Microsoft NVL72 Networking Infrastructure" />
+          </a>
+          <div class="project-meta">
+            <h2>Microsoft NVL72 Networking Infrastructure</h2>
+            <p>November 2025 - Present</p>
+            <div class="project-tags"><span>Engineering</span></div>
+          </div>
+        </article>
+
+        <article class="project-card" data-tags="Writing">
+          <a class="projects-link" href="coming-soon-vol01.html" aria-label="A Creative Life Vol. 01 cover">
+            <img src="ACreativeLifeVol01.JPEG" alt="A Creative Life Vol. 01 cover" />
+          </a>
+          <div class="project-meta">
+            <h2>A Creative Life Vol. 01</h2>
+            <p>August 2026</p>
+            <div class="project-tags"><span>Writing</span></div>
+          </div>
+        </article>
+
+        <article class="project-card" data-tags="Writing">
+          <a class="projects-link" href="coming-soon-vol02.html" aria-label="A Creative Life Vol. 02 cover">
+            <img src="ACreativeLifeVol01_PixelArt.JPEG" alt="A Creative Life Vol. 02 cover" />
+          </a>
+          <div class="project-meta">
+            <h2>A Creative Life Vol. 02</h2>
+            <p>July 2026</p>
+            <div class="project-tags"><span>Writing</span></div>
+          </div>
+        </article>
+
+        <article class="project-card" data-tags="Engineering,Product Management">
+          <a class="projects-link" href="https://alulucamera.com/" aria-label="Alulu Camera cover">
+            <img src="alulu_yellowandblack.jpg" alt="Alulu Camera cover" />
+          </a>
+          <div class="project-meta">
+            <h2>Alulu Camera</h2>
+            <p>August 2019</p>
+            <div class="project-tags"><span>Engineering</span><span>Product Management</span></div>
+          </div>
+        </article>
+
+        <article class="project-card" data-tags="Event Organization">
+          <a class="projects-link" href="cafe-otis.html" aria-label="Cafe Otis">
+            <img src="cafeotis.png" alt="Cafe Otis" />
+          </a>
+          <div class="project-meta">
+            <h2>Cafe Otis</h2>
+            <p>Oct 2024 - Dec 2025</p>
+            <div class="project-tags"><span>Event Organization</span></div>
+          </div>
+        </article>
+
+        <article class="project-card" data-tags="UX/UI Design,Product Management">
+          <a class="projects-link" href="coming-soon-snailmail.html" aria-label="Snail Mail">
+            <img src="snailmail.png" alt="Snail Mail" />
+          </a>
+          <div class="project-meta">
+            <h2>Snail Mail</h2>
+            <p>TBD</p>
+            <div class="project-tags"><span>UX/UI Design</span><span>Product Management</span></div>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <script>
+      const filterButtons = document.querySelectorAll('.project-tag-filter');
+      const projectCards = document.querySelectorAll('.project-card');
+
+      filterButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const selectedTag = button.dataset.filter;
+
+          filterButtons.forEach((item) => {
+            item.classList.toggle('is-active', item === button);
+          });
+
+          projectCards.forEach((card) => {
+            const tags = (card.dataset.tags || '').split(',').map((tag) => tag.trim());
+            const shouldShow = selectedTag === 'all' || tags.includes(selectedTag);
+            card.classList.toggle('is-hidden', !shouldShow);
+          });
+        });
+      });
+    </script>
+
+    <div class="social-links" aria-label="Social media links">
+      <a href="https://www.instagram.com/swangxswang/" target="_blank" rel="noreferrer" aria-label="Instagram" title="Instagram">◎</a>
+      <a href="https://swangxswang.substack.com/?utm_campaign=profile_chips" target="_blank" rel="noreferrer" aria-label="Substack" title="Substack">S</a>
+      <a href="https://www.youtube.com/@swangxswang" target="_blank" rel="noreferrer" aria-label="YouTube" title="YouTube">▶</a>
+      <a href="https://www.linkedin.com/in/sarah-wang-07b1b1128/?isSelfProfile=true" target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">in</a>
+    </div>
+  </body>
+</html>
